@@ -19,16 +19,3 @@ services:
       - POSTGRES_USER=eshop_user
       - POSTGRES_PASSWORD=password
     container_name: handson-cloud-msa_postgres
-
-  postgres_ad:
-    image: postgres:13
-    restart: always
-    ports:
-      - "5433:5432"
-    volumes:
-      - ./data/postgres/data_ad:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=eshop_db_ad
-      - POSTGRES_USER=eshop_user_ad
-      - POSTGRES_PASSWORD=password_ad
-    container_name: handson-cloud-msa_postgres_ad  

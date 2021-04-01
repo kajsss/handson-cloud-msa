@@ -32,6 +32,16 @@ INSERT INTO currency (currency_code, currency_value) VALUES (  'SGD', 1.5349);
 INSERT INTO currency (currency_code, currency_value) VALUES (  'THB', 36.012);
 INSERT INTO currency (currency_code, currency_value) VALUES (  'ZAR', 16.0583);
 
+INSERT INTO ad (category, redirect_url, text) VALUES ('photography','/products/2ZYFJ3GM2N','Film camera for sale. 50% off.');
+INSERT INTO ad (category, redirect_url, text) VALUES ('vintage','/products/2ZYFJ3GM2N','Film camera for sale. 50% off.');
+INSERT INTO ad (category, redirect_url, text) VALUES ('photography','/products/66VCHSJNUP','Vintage camera lens for sale. 20% off.');
+INSERT INTO ad (category, redirect_url, text) VALUES ('vintage','/products/66VCHSJNUP','Vintage camera lens for sale. 20% off.');
+INSERT INTO ad (category, redirect_url, text) VALUES ('vintage','/products/0PUK6V6EV0','Vintage record player for sale. 30% off.');
+INSERT INTO ad (category, redirect_url, text) VALUES ('cycling','/products/9SIQT8TOJO', 'City Bike for sale. 10% off.');
+INSERT INTO ad (category, redirect_url, text) VALUES ('cookware','/products/1YMWWN1N4O', 'Home Barista kitchen kit for sale. Buy one, get second kit for free');
+INSERT INTO ad (category, redirect_url, text) VALUES ('gardening','/products/6E92ZMYYFZ', 'Air plants for sale. Buy two, get third one for free');
+INSERT INTO ad (category, redirect_url, text) VALUES ('gardening','/products/L9ECAV7KIM', 'Terrarium for sale. Buy one, get second one for free');
+
 INSERT INTO product(id, name, description, picture, price_usd) VALUES ('OLJCESPC7Z','Vintage Typewriter', 'This typewriter looks good in your living room.', '/static/img/products/typewriter.jpg', 'USD|67|990000000');
 INSERT INTO product(id, name, description, picture, price_usd) VALUES ('66VCHSJNUP','Vintage Camera Lens', 'You won''t have a camera to use it and it probably doesn''t work anyway.', '/static/img/products/camera-lens.jpg', 'USD|12|490000000');
 INSERT INTO product(id, name, description, picture, price_usd) VALUES ('1YMWWN1N4O','Home Barista Kit', 'Always wanted to brew coffee with Chemex and Aeropress at home?', '/static/img/products/barista-kit.jpg', 'USD|124|0');
