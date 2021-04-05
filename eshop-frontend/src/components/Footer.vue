@@ -1,7 +1,7 @@
 <template>
     <b-container class="py-5 px-5">
         <p>
-            &copy; 2018 Google Inc
+            &copy; 2021 Samsung SDS
             <span class="text-muted">
                 <b-link href="https://github.com/GoogleCloudPlatform/microservices-demo/">(Source Code)</b-link>
             </span>

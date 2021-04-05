@@ -13,21 +13,24 @@ Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+
+
 Vue.prototype.$renderMoney = function(money, userCurrency) {
   if(!money) return userCurrency + " " + 0
   if(userCurrency === money.currencyCode) {
     if(money.nanos) {
       return money.currencyCode + " " + money.units + "." + (money.nanos / 1000000).toFixed(0)
-    } 
+    }
     return money.currencyCode + " " + money.units
-  } 
+  }
 
   axios.post(process.env.VUE_APP_BASE_URL + "currencies/convert", { from: money, to_code: userCurrency })
   .then((res) => {
     var converted = res.data;
     if(converted.nanos) {
       return userCurrency + " " + converted.units + "." + (converted.nanos / 1000000).toFixed(0)
-    } 
+    }
     return userCurrency + " " + converted.units
   })
 }

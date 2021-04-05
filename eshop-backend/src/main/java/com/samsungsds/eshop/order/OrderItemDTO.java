@@ -14,6 +14,8 @@ public class OrderItemDTO {
     private String address;
     private String creditCardInfo;
 
+    private String shippingStatus;
+
     private List<OrderProduct> orderProducts;
 
     public OrderItemDTO(OrderItem orderItem) {
@@ -61,5 +63,21 @@ public class OrderItemDTO {
 
     public void setOrderProducts(List<OrderProduct> orderProducts) {
         this.orderProducts = orderProducts;
+    }
+
+    public String getProductIds() {
+        return productIds;
+    }
+
+    public void setProductIds(String productIds) {
+        this.productIds = productIds;
+    }
+
+    public String getShippingStatus() {
+        return shippingStatus;
+    }
+
+    public void setShippingStatus(String shippingStatus) {
+        this.shippingStatus = shippingStatus;
     }
 }

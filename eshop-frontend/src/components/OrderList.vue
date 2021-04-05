@@ -43,7 +43,7 @@
         name: 'OrderList',
         data: () => {
             return {
-                fields: ['id', 'productCount', 'emailAddress', 'address', 'cancel'],
+                fields: ['id', 'productCount', 'emailAddress', 'address', 'shippingStatus', 'cancel'],
                 detailFields: ['productId','productName','quantity'],
                 products: [],
                 selectedOrder: null,

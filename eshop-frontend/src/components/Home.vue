@@ -33,6 +33,13 @@ export default {
     Ad,
     Products
   },
+  mounted:function(){
+    const token = localStorage.getItem('token');
+    if(token === null || token === ''){
+      localStorage.removeItem('token');
+      this.$router.push('/');
+    }
+  },
   computed: {
     ...mapState({
       bannercolor: state => state.bannercolor

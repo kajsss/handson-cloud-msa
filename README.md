@@ -26,4 +26,6 @@ $ ./gradlew bootRun
 $ cd eshop-frontend
 $ npm install
 $ npm run serve
-```
+
+PortNumber
+Backend -Service : 8090```

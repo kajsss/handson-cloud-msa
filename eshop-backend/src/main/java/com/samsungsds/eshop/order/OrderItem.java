@@ -14,6 +14,7 @@ public class OrderItem {
     private String emailAddress;
     private String address;
     private String creditCardInfo;
+    private Integer shippingId;
 
     @Transient
     private CartItem[] cartItems;
@@ -22,11 +23,12 @@ public class OrderItem {
 
     }
 
-    public OrderItem(String emailAddress, String address, String creditCardInfo, CartItem[] cartItems) {
+    public OrderItem(String emailAddress, String address, String creditCardInfo, CartItem[] cartItems, Integer shippingId) {
         this.emailAddress = emailAddress;
         this.address = address;
         this.creditCardInfo = creditCardInfo;
         this.cartItems = cartItems;
+        this.shippingId = shippingId;
     }
 
     public Integer getId() {
@@ -74,5 +76,13 @@ public class OrderItem {
 
     public void setCartItems(CartItem[] cartItems) {
         this.cartItems = cartItems;
+    }
+
+    public Integer getShippingId() {
+        return shippingId;
+    }
+
+    public void setShippingId(Integer shippingId) {
+        this.shippingId = shippingId;
     }
 }

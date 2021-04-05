@@ -53,6 +53,8 @@ public class OrderController {
                 .peek(dto -> {
                     List<OrderProduct> orderProducts = orderService.getOrderProducts(dto.getId());
                     dto.setOrderProducts(orderProducts);
+                    ShippingResult shippingInfo = shippingService.getShippingResultByOrderId(dto.getId());
+                    dto.setShippingStatus(shippingInfo.getStatus());
                 }).collect(Collectors.toList());
 
         return ResponseEntity.ok(result);
@@ -89,26 +91,28 @@ public class OrderController {
         PaymentRequest request = new PaymentRequest(orderRequest.getCreditCardInfo(), itemPrice.plus(shippingCost));
         paymentService.requestPayment(request);
 
+        // 주문ID 생성
+        String orderId = orderService.createOrderId(); // VISUAL ID
+
+
         // 배송 요청
-        ShippingResult shippingResult = shippingService
-                .shipOrder(new ShippingRequest(cartItems, orderRequest.getAddress()));
+        ShippingRequest shippingRequest = new ShippingRequest(cartItems, orderRequest.getAddress());
+        ShippingResult shippingResult = shippingService.shipOrder(shippingRequest);
         logger.info("shippingCost : " + shippingResult.getShippingCost());
 
         // 총액 계산
         Money totalCost = itemPrice.plus(shippingResult.getShippingCost());
-
-        // 주문ID 생성
-        String orderId = orderService.createOrderId();
-
         //TODO: 주문생성 데이터 생성 필요함.
         OrderItem newOrderItem = new OrderItem(
                 orderRequest.getEmailAddress(),
                 orderRequest.getAddress().toString(),
                 orderRequest.getCreditCardInfo().toString(),
-                cartItems
+                cartItems,
+                shippingResult.getId()
         );
-        orderService.createOrder(newOrderItem);
-
+        OrderItem order = orderService.createOrder(newOrderItem);
+        shippingResult.setOrderId(order.getId());
+        shippingService.saveShipping(shippingResult);
         // 카트 비우기
         cartService.emptyCart();
         return ResponseEntity.ok(new OrderResult(orderId, shippingResult.getShippingTrackingId(),

@@ -7,8 +7,9 @@ import com.samsungsds.eshop.cart.CartItem;
 public class ShippingRequest {
     private CartItem[] cartItems;
     private Address shippingAddress;
+    private String orderId;
 
-    public ShippingRequest(CartItem[] cartItems, Address shippingAddress) {
+    public ShippingRequest( CartItem[] cartItems, Address shippingAddress) {
         this.cartItems = cartItems;
         this.shippingAddress = shippingAddress;
     }
@@ -35,5 +36,13 @@ public class ShippingRequest {
                 "cartItems=" + Arrays.toString(cartItems) +
                 ", shippingAddress=" + shippingAddress +
                 '}';
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 }

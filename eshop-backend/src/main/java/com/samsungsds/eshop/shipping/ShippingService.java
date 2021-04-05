@@ -10,11 +10,20 @@ import com.samsungsds.eshop.payment.Money;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ShippingService {
+
+    final ShippingRepository shippingRepository;
+
+
     private static final Logger logger = LoggerFactory.getLogger(ShippingService.class);
+
+    public ShippingService(ShippingRepository shippingRepository) {
+        this.shippingRepository = shippingRepository;
+    }
 
     Money calculateShippingCostFromCount(final int count) {
         if(count == 0) {
@@ -36,8 +45,19 @@ public class ShippingService {
     public ShippingResult shipOrder(ShippingRequest shippingRequest) {
         Money shippingCost = this.calculateShippingCostFromCartItems(shippingRequest.getCartItems());
         String shippingTrackingId = createShippingTrackingId(shippingRequest);
-        return new ShippingResult(shippingTrackingId, shippingCost);
+        ShippingResult createdShippingResult = new ShippingResult(shippingTrackingId, shippingCost);
+
+        return createdShippingResult;
     }
+
+    public ShippingResult saveShipping(ShippingResult shippingRequest) {
+        return shippingRepository.save(shippingRequest);
+    }
+
+    public ShippingResult getShippingResultByOrderId(Integer orderId){
+        return shippingRepository.findShippingResultByOrderId(orderId);
+    }
+
 
     private String createShippingTrackingId(ShippingRequest shippingRequest) {
         // 원래는 뭔가 많이 해야 하지만 예제이므로 그냥 UUID

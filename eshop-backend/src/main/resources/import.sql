@@ -76,3 +76,10 @@ INSERT INTO inventory(id, product_id, product_name, quantity, location) VALUES (
 INSERT INTO inventory(id, product_id, product_name, quantity, location) VALUES ( 7, 'LS4PSXUNUM','Metal Camping' , 30, 'SEOUL');
 INSERT INTO inventory(id, product_id, product_name, quantity, location) VALUES ( 8, '9SIQT8TOJO','City Bike', 30, 'SEOUL');
 INSERT INTO inventory(id, product_id, product_name, quantity, location) VALUES ( 9, '6E92ZMYYFZ','Air Plant', 30, 'SEOUL' );
+
+INSERT INTO my_user(id, email, is_enable, pw, role) VALUES ( '1',	'user1@gmail.com',	false,	'$2a$10$IRTLB5jzGb5vM2A6MDj2B.F.S3MxisKy.8LRHr841ZCkS40.TW9KK',	'ROLE_USER');
+INSERT INTO my_user(id, email, is_enable, pw, role) VALUES ( '2',	'user2@gmail.com',	false,	'$2a$10$SrxHrx1bjKQ8yN9pAw03MuptabWlVit19cIXmnwGm65Pwf8VFxPaS',	'ROLE_USER');
+
+
+
+
