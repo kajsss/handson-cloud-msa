@@ -108,3 +108,9 @@ https://brunch.co.kr/@springboot/298
 - Jaeger 설정을 위한 라이브러리, 설정파일 모든 프로젝트 대상으로 추가
 - Jaeger All in  one 도커 기반 실행을 위한 Shell 파일 생성
 - Jageger 확인  JaeerUI: http://localhost:16686/ 
+
+## Grafana prometheus
+```
+ git clone https://github.com/rabbitmq/rabbitmq-prometheus.git
+ ./rabbitmq-prometheus-run.sh
+ ```
